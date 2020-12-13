@@ -3,11 +3,10 @@ const express = require('express')
 const routes = express.Router()
 
 //importacao dos controllers
-
-const u = require('./src/controller/userController')
+const userController = require('./src/controller/userController')
 
 //rotas
-routes.get('/', u.create)
+routes.get('/user/create/:name/', userController.create)
 
 
 

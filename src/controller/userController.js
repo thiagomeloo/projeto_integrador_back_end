@@ -4,13 +4,12 @@ module.exports = {
         try {
             
             const userService = require('../services/userService')
-            const response = await userService.create(req.params)
+            const response = await userService.create(req,res)
             return res.status(201).json(response)
             
         } catch (e) {
 
-            return next(e)
-
+            return 
         }
 
     }
