@@ -3,10 +3,13 @@ const express = require('express')
 const routes = express.Router()
 
 //importacao dos controllers
-const userController = require('./src/controller/userController')
+const clienteController = require('./src/controller/clienteController')
 
 //rotas
-routes.get('/user/create/:name/', userController.create)
+routes.get('/',()=>{return console.log('teste') })
+
+routes.get('/cliente/all', clienteController.all)
+routes.post('/cliente/create', clienteController.create)
 
 
 
