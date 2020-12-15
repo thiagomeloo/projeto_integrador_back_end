@@ -6,6 +6,8 @@ const routes = express.Router()
 const clienteController = require('./src/controller/clienteController')
 const restauranteController = require('./src/controller/restauranteController')
 const pratoController = require('./src/controller/pratoController')
+const mesaController = require('./src/controller/mesaController')
+
 
 
 
@@ -23,5 +25,13 @@ routes.post('/restaurante/create', restauranteController.create)
 //rotas prato
 routes.get('/prato/all', pratoController.all)
 routes.post('/prato/create', pratoController.create)
+
+//rotas mesa
+routes.get('/mesa/all', mesaController.all)
+routes.post('/mesa/create', mesaController.create)
+
+routes.get("/*", function(req, res){
+    return resposta.json({"response":"rota não existe"})
+})
 
 module.exports = routes
