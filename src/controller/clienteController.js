@@ -1,36 +1,52 @@
 module.exports = {
-    
-    async all(req, res){
-        
+
+    async all(req, res) {
+
         try {
-            
+
             const clienteService = require('../services/clienteService')
-            const response = await clienteService.all(req,res)
-            return res.status(201).json(response)
-            
+            const response = await clienteService.all(req, res)
+            return response
+
         } catch (e) {
 
-            return 
+            return
         }
 
     },
-    
-    async create(req, res){
-        
-        try {
-            
-            const clienteService = require('../services/clienteService')
-            const response = await clienteService.create(req,res)
-            
 
-            return res.status(201).json(response)
-            
+    async create(req, res) {
+
+        try {
+
+            const clienteService = require('../services/clienteService')
+            const response = await clienteService.create(req, res)
+
+
+            return response
+
         } catch (e) {
 
-            return 
+            return
+        }
+
+    },
+
+    async findByEmail(req, res) {
+
+        try {
+
+            const clienteService = require('../services/clienteService')
+            const response = await clienteService.findByEmail(req, res)
+
+            return response
+
+        } catch (e) {
+
+            return
         }
 
     }
 
 
-  }
+}

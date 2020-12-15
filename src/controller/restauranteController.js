@@ -6,7 +6,7 @@ module.exports = {
             
             const restauranteService = require('../services/restauranteService')
             const response = await restauranteService.all(req,res)
-            return res.status(201).json(response)
+            return response
             
         } catch (e) {
 
@@ -23,11 +23,27 @@ module.exports = {
             const response = await restauranteService.create(req,res)
             
 
-            return res.status(201).json(response)
+            return response
             
         } catch (e) {
 
             return 
+        }
+
+    },
+
+    async findByEmail(req, res) {
+
+        try {
+
+            const restauranteService = require('../services/restauranteService')
+            const response = await restauranteService.findByEmail(req, res)
+
+            return response
+
+        } catch (e) {
+
+            return
         }
 
     }
