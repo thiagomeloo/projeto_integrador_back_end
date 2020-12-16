@@ -17,13 +17,13 @@ routes.get('/',()=>{return console.log('teste') })
 //rotas cliente
 routes.get('/cliente/all', clienteController.all)
 routes.post('/cliente/create', clienteController.create)
-routes.get('/cliente/findByEmail/:email', clienteController.findByEmail)
+routes.post('/cliente/findByEmail', clienteController.findByEmail)
 
 
 //rotas restaurante
 routes.get('/restaurante/all', restauranteController.all)
 routes.post('/restaurante/create', restauranteController.create)
-routes.get('/restaurante/findByEmail/:email', restauranteController.findByEmail)
+routes.post('/restaurante/findByEmail', restauranteController.findByEmail)
 
 
 //rotas prato

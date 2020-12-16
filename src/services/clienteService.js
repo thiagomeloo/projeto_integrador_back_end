@@ -37,7 +37,7 @@ module.exports = {
     },
     async findByEmail(req, res) {
         const con = require('../database/conexao')
-        const email = req.params.email
+        const email = req.body.email
 
         await con('clientes').where({cliente_email : email })
             .first()
