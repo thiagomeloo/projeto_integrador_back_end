@@ -48,12 +48,12 @@ module.exports = {
 
                 } else {
 
-                    return res.status(404).json({ message: 'registro não encontrado!' })
+                    return res.status(200).json({notExist:true, message: 'registro não encontrado!' })
 
                 }
             })
             .catch(erro => {
-                return res.status(500).json({ message: 'não foi possivel executar a operação!' })
+                return res.status(200).json({ message: 'não foi possivel executar a operação!' })
             })
     }
 
