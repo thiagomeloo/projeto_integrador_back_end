@@ -4,13 +4,12 @@ console.dir(process.env)
 module.exports = {
 
   production: {
-    client: 'pg',
+    client: 'mysql',
     connection: {
       host: process.env.DB_HOST,
       user: process.env.DB_USER,
       password: process.env.DB_PASSOWRD,
-      database: process.env.DB_DATABASE,
-      port:process.env.DB_PORT
+      database: process.env.DB_DATABASE
     },
     migrations: {
       tableName: 'migrations'
