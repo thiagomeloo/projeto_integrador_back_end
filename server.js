@@ -8,6 +8,6 @@ server.use(express.json())
 server.use(express.urlencoded({ extended: true }))
 server.use(routes)
 
-server.listen(process.env.SERVER_PORT, function(){
+server.listen(process.env.PORT, function(){
     console.log('server is runnig')
 })
