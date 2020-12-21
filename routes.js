@@ -23,6 +23,7 @@ routes.post('/cliente/findByEmail', clienteController.findByEmail)
 //rotas restaurante
 routes.get('/restaurante/all', restauranteController.all)
 routes.post('/restaurante/create', restauranteController.create)
+routes.post('/restaurante/update', restauranteController.update)
 routes.post('/restaurante/findByEmail', restauranteController.findByEmail)
 
 

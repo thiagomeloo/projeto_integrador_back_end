@@ -46,7 +46,22 @@ module.exports = {
             return
         }
 
-    }
+    },
 
+    async update(req, res) {
+
+        try {
+
+            const restauranteService = require('../services/restauranteService')
+            const response = await restauranteService.update(req, res)
+
+            return response
+
+        } catch (e) {
+
+            return
+        }
+
+    },
 
   }

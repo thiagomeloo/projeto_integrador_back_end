@@ -57,6 +57,26 @@ module.exports = {
                 return res.status(200).json({ message: 'não foi possivel executar a operação!' })
             })
     },
+
+    async update(req,res){
+        const changes = req.body
+        const con = require('../database/conexao')
+        const restaurante_codigo = changes.restaurante_codigo
+        delete changes.restaurante_codigo
+        return con('restaurantes').where({restaurante_codigo})
+        .update(changes)
+       .then(restaurante =>{
+           
+           if(restaurante){
+                return res.status(200).json({message:'restaurante atualizado com sucesso!'}) 
+           }else{
+                return res.status(200).json({message:'registro não encontrado!'})
+           }
+       })
+       .catch(erro =>{
+           return res.status(200).json({message:'não foi possivel executar a operação!'})
+       })
+    }
     
 
 }
