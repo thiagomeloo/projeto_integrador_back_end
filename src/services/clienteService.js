@@ -1,49 +1,51 @@
-const { findByEmail } = require('../controller/clienteController')
 
 module.exports = {
 
-    async all(req, res) {
+    async all(req, res){
         const con = require('../database/conexao')
         await con('clientes')
 
-            .then(clientes => {
+        .then(clientes =>{
 
-                return res.status(200).json({ clientes })
+            return res.status(200).json({ clientes })
+             
+        })
+        .catch(erro => {
 
-            })
-            .catch(erro => {
-
-                return res.status(500).json({ message: 'não foi possivel executar a operação!' })
-
-            })
+            return res.status(500).json({message:'não foi possivel executar a operação!'})
+        
+        })
     },
 
-    async create(req, res) {
+    async create(req,res){
         //consulta banco usuario
         const con = require('../database/conexao')
-
+        
         cliente = req.body
         await con('clientes').insert(cliente)
-            .then(cliente => {
-                let cliente = cliente[0]
-                
-                return res.status(200).json({ message: "cliente criado com sucesso", cliente })
+        .then(cliente=>{
+            
+            let cliente_codigo = cliente[0]
 
-            }).catch(erro => {
+            return res.status(200).json({message:"cliente criado com sucesso", cliente_codigo })
+        
+        }).catch(erro =>{
 
-                return res.status(500).json({ message: 'não foi possivel executar a operação!' })
-
-            })
+            return res.status(500).json({message:'não foi possivel executar a operação!'})
+        
+        })
 
     },
     async findByEmail(req, res) {
         const con = require('../database/conexao')
         const email = req.body.email
+        console.log(email)
 
         await con('clientes').where({cliente_email : email })
             .first()
             .then(cliente => {
                 if (cliente) {
+                    
                     return res.status(200).json({ cliente })
 
                 } else {
@@ -55,6 +57,7 @@ module.exports = {
             .catch(erro => {
                 return res.status(200).json({ message: 'não foi possivel executar a operação!' })
             })
-    }
+    },
+    
 
 }

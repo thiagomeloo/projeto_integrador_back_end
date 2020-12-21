@@ -1,6 +1,6 @@
 // Update with your config settings.
 require('dotenv').config()
-console.dir(process.env)
+//console.dir(process.env)
 module.exports = {
 
   production: {
