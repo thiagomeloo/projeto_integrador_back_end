@@ -24,8 +24,9 @@ module.exports = {
         restaurante = req.body
         await con('restaurantes').insert(restaurante)
         .then(restaurante=>{
-            let cliente_codigo = cliente[0]
-            return res.status(200).json({message:"restaurante criado com sucesso", restaurante })
+            let restaurante_codigo = restaurante[0]
+
+            return res.status(200).json({message:"restaurante criado com sucesso", restaurante_codigo })
         
         }).catch(erro =>{
 
