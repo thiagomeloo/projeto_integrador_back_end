@@ -43,6 +43,7 @@ module.exports = {
             .first()
             .then(restaurante => {
                 if (restaurante) {
+                    let restaurante = restaurante[0]
 
                     return res.status(200).json({ restaurante })
 
@@ -55,6 +56,7 @@ module.exports = {
             .catch(erro => {
                 return res.status(200).json({ message: 'não foi possivel executar a operação!' })
             })
-    }
+    },
+    
 
 }

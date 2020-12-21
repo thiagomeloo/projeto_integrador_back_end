@@ -25,7 +25,8 @@ module.exports = {
         cliente = req.body
         await con('clientes').insert(cliente)
             .then(cliente => {
-
+                let cliente = cliente[0]
+                
                 return res.status(200).json({ message: "cliente criado com sucesso", cliente })
 
             }).catch(erro => {
@@ -43,7 +44,6 @@ module.exports = {
             .first()
             .then(cliente => {
                 if (cliente) {
-
                     return res.status(200).json({ cliente })
 
                 } else {
