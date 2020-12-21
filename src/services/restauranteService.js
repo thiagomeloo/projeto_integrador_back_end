@@ -43,9 +43,8 @@ module.exports = {
             .first()
             .then(restaurante => {
                 if (restaurante) {
-                    let restaurante_codigo = restaurante[0]
-
-                    return res.status(200).json({ restaurante_codigo })
+                    
+                    return res.status(200).json({ restaurante })
 
                 } else {
 
