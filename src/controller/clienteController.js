@@ -32,6 +32,22 @@ module.exports = {
 
     },
 
+    async update(req, res) {
+
+        try {
+
+            const clienteService = require('../services/clienteService')
+            const response = await clienteService.update(req, res)
+
+            return response
+
+        } catch (e) {
+
+            return
+        }
+
+    },
+
     async findByEmail(req, res) {
 
         try {
@@ -46,7 +62,8 @@ module.exports = {
             return
         }
 
-    }
+    },
+
 
 
 }

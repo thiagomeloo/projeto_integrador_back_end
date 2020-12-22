@@ -36,6 +36,25 @@ module.exports = {
         })
 
     },
+    async update(req,res){
+        const changes = req.body
+        const con = require('../database/conexao')
+        const cliente_codigo = changes.cliente_codigo
+        delete changes.cliente_codigo
+        return con('clientes').where({cliente_codigo})
+        .update(changes)
+       .then(cliente =>{
+           
+           if(cliente){
+                return res.status(200).json({message:'cliente atualizado com sucesso!'}) 
+           }else{
+                return res.status(200).json({message:'registro não encontrado!'})
+           }
+       })
+       .catch(erro =>{
+           return res.status(200).json({message:'não foi possivel executar a operação!'})
+       })
+    },
     async findByEmail(req, res) {
         const con = require('../database/conexao')
         const email = req.body.email

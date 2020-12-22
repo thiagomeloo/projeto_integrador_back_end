@@ -17,6 +17,7 @@ routes.get('/',()=>{return console.log('teste') })
 //rotas cliente
 routes.get('/cliente/all', clienteController.all)
 routes.post('/cliente/create', clienteController.create)
+routes.post('/cliente/update', clienteController.update)
 routes.post('/cliente/findByEmail', clienteController.findByEmail)
 
 
