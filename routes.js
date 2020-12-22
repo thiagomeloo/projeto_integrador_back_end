@@ -7,6 +7,7 @@ const clienteController = require('./src/controller/clienteController')
 const restauranteController = require('./src/controller/restauranteController')
 const pratoController = require('./src/controller/pratoController')
 const mesaController = require('./src/controller/mesaController')
+const reservaController = require('./src/controller/reservaController')
 
 
 
@@ -39,6 +40,8 @@ routes.get('/mesa/all', mesaController.all)
 routes.post('/mesa/create', mesaController.create)
 routes.post('/mesa/update', mesaController.update)
 
+//rotas reserva
+routes.get('/reserva/all',  reservaController.all)
 
 routes.get("/*", function(req, res){
     return res.json({"response":"rota não existe"})
