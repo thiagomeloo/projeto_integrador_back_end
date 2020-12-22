@@ -2,6 +2,7 @@
 exports.up = function(knex) {
     return knex.schema.createTable('reservas', tb => {
         tb.increments('reserva_codigo')
+        tb.integer('reserva_qtd_pessoas')
         tb.integer('reserva_cliente_codigo').unsigned()
         tb.integer('reserva_mesa_codigo').unsigned()
         tb.integer('reserva_restaurante_codigo').unsigned()

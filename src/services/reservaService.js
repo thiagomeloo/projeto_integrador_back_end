@@ -12,7 +12,7 @@ module.exports = {
         })
         .catch(erro => {
 
-            return res.status(500).json({message:'não foi possivel executar a operação!'})
+            return res.status(200).json({message:'não foi possivel executar a operação!'})
         
         })
     },
