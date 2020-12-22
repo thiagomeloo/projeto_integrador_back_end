@@ -33,6 +33,25 @@ module.exports = {
         
         })
 
+    },
+    async update(req,res){
+        const changes = req.body
+        const con = require('../database/conexao')
+        const prato_codigo = changes.prato_codigo
+        delete changes.prato_codigo
+        return con('pratos').where({prato_codigo})
+        .update(changes)
+       .then(prato =>{
+           
+           if(prato){
+                return res.status(200).json({message:'prato atualizado com sucesso!'}) 
+           }else{
+                return res.status(200).json({message:'registro não encontrado!'})
+           }
+       })
+       .catch(erro =>{
+           return res.status(200).json({message:'não foi possivel executar a operação!'})
+       })
     }
 
 }

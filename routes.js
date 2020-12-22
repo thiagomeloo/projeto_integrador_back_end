@@ -30,6 +30,8 @@ routes.post('/restaurante/findByEmail', restauranteController.findByEmail)
 //rotas prato
 routes.get('/prato/all', pratoController.all)
 routes.post('/prato/create', pratoController.create)
+routes.post('/prato/update', pratoController.update)
+
 
 //rotas mesa
 routes.get('/mesa/all', mesaController.all)

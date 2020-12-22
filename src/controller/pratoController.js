@@ -30,7 +30,22 @@ module.exports = {
             return 
         }
 
-    }
+    },
+    async update(req, res) {
+
+        try {
+
+            const pratoService = require('../services/pratoService')
+            const response = await pratoService.update(req, res)
+
+            return response
+
+        } catch (e) {
+
+            return
+        }
+
+    },
 
 
   }
