@@ -37,6 +37,8 @@ routes.post('/prato/update', pratoController.update)
 //rotas mesa
 routes.get('/mesa/all', mesaController.all)
 routes.post('/mesa/create', mesaController.create)
+routes.post('/mesa/update', mesaController.update)
+
 
 routes.get("/*", function(req, res){
     return res.json({"response":"rota não existe"})

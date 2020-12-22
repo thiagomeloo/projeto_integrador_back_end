@@ -33,6 +33,25 @@ module.exports = {
         
         })
 
-    }
+    },
+    async update(req,res){
+        const changes = req.body
+        const con = require('../database/conexao')
+        const mesa_codigo = changes.mesa_codigo
+        delete changes.mesa_codigo
+        return con('mesas').where({mesa_codigo})
+        .update(changes)
+       .then(mesa =>{
+           
+           if(mesa){
+                return res.status(200).json({message:'mesa atualizada com sucesso!'}) 
+           }else{
+                return res.status(200).json({message:'registro não encontrado!'})
+           }
+       })
+       .catch(erro =>{
+           return res.status(200).json({message:'não foi possivel executar a operação!'})
+       })
+    },
 
 }

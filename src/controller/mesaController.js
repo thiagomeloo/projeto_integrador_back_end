@@ -30,7 +30,22 @@ module.exports = {
             return 
         }
 
-    }
+    },
+    async update(req, res) {
+
+        try {
+
+            const mesaService = require('../services/mesaService')
+            const response = await mesaService.update(req, res)
+
+            return response
+
+        } catch (e) {
+
+            return
+        }
+
+    },
 
 
   }
