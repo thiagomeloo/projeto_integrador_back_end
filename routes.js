@@ -42,6 +42,12 @@ routes.post('/mesa/update', mesaController.update)
 
 //rotas reserva
 routes.get('/reserva/all',  reservaController.all)
+routes.post('/reserva/create',  reservaController.create)
+routes.post('/reserva/findByCliente',  reservaController.findByCliente)
+routes.post('/reserva/findByRestaurante',  reservaController.findByRestaurante)
+
+
+
 
 routes.get("/*", function(req, res){
     return res.json({"response":"rota não existe"})

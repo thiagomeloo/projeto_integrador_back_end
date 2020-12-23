@@ -15,4 +15,53 @@ module.exports = {
 
     },
 
+    async create(req, res){
+        
+        try {
+            
+            const reservaService = require('../services/reservaService')
+            const response = await reservaService.create(req,res)
+            
+
+            return response
+            
+        } catch (e) {
+
+            return 
+        }
+
+    },
+
+    async findByCliente(req, res) {
+
+        try {
+
+            const reservaService = require('../services/reservaService')
+            const response = await reservaService.findByCliente(req, res)
+
+            return response
+
+        } catch (e) {
+
+            return
+        }
+
+    },
+
+    async findByRestaurante(req, res) {
+
+        try {
+
+            const reservaService = require('../services/reservaService')
+            const response = await reservaService.findByRestaurante(req, res)
+
+            return response
+
+        } catch (e) {
+
+            return
+        }
+
+    },
+
   }
