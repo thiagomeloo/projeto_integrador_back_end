@@ -1,3 +1,5 @@
+const { findByRestauranteDisponivel } = require('../controller/mesaController')
+const { andWhereNotBetween } = require('../database/conexao')
 
 module.exports = {
 
@@ -73,5 +75,25 @@ module.exports = {
                 return res.status(200).json({ message: 'não foi possivel executar a operação!' })
             })
     },
+    async findByRestauranteDisponivel(req, res) {
+        const con = require('../database/conexao')
+        const restaurante_codigo = req.body.restaurante_codigo
 
+        await con('mesas').where({mesa_restaurante_codigo : restaurante_codigo })
+        .whereRaw('mesa_data_hora >= now()')
+            .then(mesas => {
+                if (mesas) {
+                    
+                    return res.status(200).json({ mesas })
+
+                } else {
+
+                    return res.status(200).json({notExist:true, message: 'registro não encontrado!' })
+
+                }
+            })
+            .catch(erro => {
+                return res.status(200).json({ message: 'não foi possivel executar a operação!' })
+            })
+    },
 }

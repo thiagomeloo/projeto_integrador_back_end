@@ -61,6 +61,20 @@ module.exports = {
         }
 
     },
+    async findByRestauranteDisponivel(req, res) {
 
+        try {
+
+            const mesaService = require('../services/mesaService')
+            const response = await mesaService.findByRestauranteDisponivel(req, res)
+
+            return response
+
+        } catch (e) {
+
+            return
+        }
+
+    },
 
   }

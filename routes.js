@@ -42,6 +42,7 @@ routes.get('/mesa/all', mesaController.all)
 routes.post('/mesa/create', mesaController.create)
 routes.post('/mesa/update', mesaController.update)
 routes.post('/mesa/findByRestaurante', mesaController.findByRestaurante)
+routes.post('/mesa/findByRestaurante/disponivel', mesaController.findByRestauranteDisponivel)
 
 
 //rotas reserva
