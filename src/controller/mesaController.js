@@ -76,5 +76,20 @@ module.exports = {
         }
 
     },
+    async findByRestauranteDisponivelFilterQtdPessoa(req, res) {
 
+        try {
+
+            const mesaService = require('../services/mesaService')
+            const response = await mesaService.findByRestauranteDisponivelFilterQtdPessoa(req, res)
+
+            return response
+
+        } catch (e) {
+
+            return
+        }
+
+    },
+    
   }
