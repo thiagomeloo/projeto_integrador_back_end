@@ -47,5 +47,20 @@ module.exports = {
 
     },
 
+    async findByRestaurante(req, res) {
+
+        try {
+
+            const pratoService = require('../services/pratoService')
+            const response = await pratoService.findByRestaurante(req, res)
+
+            return response
+
+        } catch (e) {
+
+            return
+        }
+
+    },
 
   }

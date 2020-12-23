@@ -16,7 +16,6 @@ module.exports = {
         
         })
     },
-
     async create(req,res){
         //consulta banco usuario
         const con = require('../database/conexao')
@@ -52,6 +51,27 @@ module.exports = {
        .catch(erro =>{
            return res.status(200).json({message:'não foi possivel executar a operação!'})
        })
-    }
+    },
+    async findByRestaurante(req, res) {
+        const con = require('../database/conexao')
+        const restaurante_codigo = req.body.restaurante_codigo
+
+        await con('pratos').where({prato_restaurante_codigo : restaurante_codigo })
+            
+            .then(pratos => {
+                if (pratos) {
+
+                    return res.status(200).json({ pratos })
+
+                } else {
+
+                    return res.status(200).json({notExist:true, message: 'registro não encontrado!' })
+
+                }
+            })
+            .catch(erro => {
+                return res.status(200).json({ message: 'não foi possivel executar a operação!' })
+            })
+    },
 
 }

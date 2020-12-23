@@ -33,16 +33,21 @@ routes.post('/restaurante/findByEmail', restauranteController.findByEmail)
 routes.get('/prato/all', pratoController.all)
 routes.post('/prato/create', pratoController.create)
 routes.post('/prato/update', pratoController.update)
+routes.post('/prato/findByRestaurante', pratoController.findByRestaurante)
+
 
 
 //rotas mesa
 routes.get('/mesa/all', mesaController.all)
 routes.post('/mesa/create', mesaController.create)
 routes.post('/mesa/update', mesaController.update)
+routes.post('/mesa/findByRestaurante', mesaController.findByRestaurante)
+
 
 //rotas reserva
 routes.get('/reserva/all',  reservaController.all)
 routes.post('/reserva/create',  reservaController.create)
+routes.post('/reserva/update', reservaController.update)
 routes.post('/reserva/findByCliente',  reservaController.findByCliente)
 routes.post('/reserva/findByRestaurante',  reservaController.findByRestaurante)
 

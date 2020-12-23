@@ -14,7 +14,6 @@ module.exports = {
         }
 
     },
-
     async create(req, res){
         
         try {
@@ -31,7 +30,21 @@ module.exports = {
         }
 
     },
+    async update(req, res) {
 
+        try {
+
+            const reservaService = require('../services/reservaService')
+            const response = await reservaService.update(req, res)
+
+            return response
+
+        } catch (e) {
+
+            return
+        }
+
+    },
     async findByCliente(req, res) {
 
         try {
@@ -47,7 +60,6 @@ module.exports = {
         }
 
     },
-
     async findByRestaurante(req, res) {
 
         try {
