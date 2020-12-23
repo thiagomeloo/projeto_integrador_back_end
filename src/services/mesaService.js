@@ -80,7 +80,7 @@ module.exports = {
         const restaurante_codigo = req.body.restaurante_codigo
 
         await con('mesas').where({mesa_restaurante_codigo : restaurante_codigo })
-        .whereRaw('mesa_data_hora >= now()')
+            .whereRaw('mesa_data_hora >= now()').orderBy('mesa_data_hora','asc')
             .then(mesas => {
                 if (mesas) {
                     
