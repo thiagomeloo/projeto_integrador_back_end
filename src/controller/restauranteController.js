@@ -48,6 +48,22 @@ module.exports = {
 
     },
 
+    async findByCodigo(req, res) {
+
+        try {
+
+            const restauranteService = require('../services/restauranteService')
+            const response = await restauranteService.findByCodigo(req, res)
+
+            return response
+
+        } catch (e) {
+
+            return
+        }
+
+    },
+
     async update(req, res) {
 
         try {
