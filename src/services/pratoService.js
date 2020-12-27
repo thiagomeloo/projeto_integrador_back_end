@@ -73,5 +73,26 @@ module.exports = {
                 return res.status(200).json({ message: 'não foi possivel executar a operação!' })
             })
     },
+    async findByCodigo(req, res) {
+        const con = require('../database/conexao')
+        const prato_codigo = req.body.prato_codigo
+
+        await con('pratos').where({prato_codigo : prato_codigo })
+            .first()
+            .then(prato => {
+                if (prato) {
+                    
+                    return res.status(200).json({ prato })
+
+                } else {
+
+                    return res.status(200).json({notExist:true, message: 'registro não encontrado!' })
+
+                }
+            })
+            .catch(erro => {
+                return res.status(200).json({ message: 'não foi possivel executar a operação!' })
+            })
+    },
 
 }

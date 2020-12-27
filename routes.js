@@ -37,6 +37,7 @@ routes.get('/prato/all', pratoController.all)
 routes.post('/prato/create', pratoController.create)
 routes.post('/prato/update', pratoController.update)
 routes.post('/prato/findByRestaurante', pratoController.findByRestaurante)
+routes.post('/prato/findByCodigo', pratoController.findByCodigo)
 
 
 
