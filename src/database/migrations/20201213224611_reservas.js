@@ -6,7 +6,7 @@ exports.up = function(knex) {
         tb.integer('reserva_cliente_codigo').unsigned()
         tb.integer('reserva_mesa_codigo').unsigned()
         tb.integer('reserva_restaurante_codigo').unsigned()
-        tb.datetime('reserva_data')
+        tb.datetime('reserva_data').defaultTo(knex.fn.now())
         
 
         tb.foreign('reserva_cliente_codigo').references('cliente_codigo').inTable('clientes')

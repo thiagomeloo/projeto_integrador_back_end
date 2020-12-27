@@ -8,6 +8,7 @@ const restauranteController = require('./src/controller/restauranteController')
 const pratoController = require('./src/controller/pratoController')
 const mesaController = require('./src/controller/mesaController')
 const reservaController = require('./src/controller/reservaController')
+const reservaHasPratosController = require('./src/controller/reservaHasPratosController')
 
 
 
@@ -53,6 +54,8 @@ routes.post('/reserva/update', reservaController.update)
 routes.post('/reserva/findByCliente',  reservaController.findByCliente)
 routes.post('/reserva/findByRestaurante',  reservaController.findByRestaurante)
 
+routes.get('/reservaHasPratos/all',  reservaHasPratosController.all)
+routes.post('/reservaHasPratos/create',  reservaHasPratosController.create)
 
 
 

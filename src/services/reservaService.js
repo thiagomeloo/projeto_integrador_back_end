@@ -22,13 +22,14 @@ module.exports = {
         const con = require('../database/conexao')
         
         reserva = req.body
+        console.log(req)
         await con('reservas').insert(reserva)
         .then(reserva =>{
             let reserva_codigo = reserva[0]
             return res.status(200).json({message:"reserva criada com sucesso", reserva_codigo })
         
         }).catch(erro =>{
-
+            console.log(erro)
             return res.status(200).json({message:'não foi possivel executar a operação!'})
         
         })
