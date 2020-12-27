@@ -54,8 +54,11 @@ routes.post('/reserva/update', reservaController.update)
 routes.post('/reserva/findByCliente',  reservaController.findByCliente)
 routes.post('/reserva/findByRestaurante',  reservaController.findByRestaurante)
 
+//rotas pratos da reserva
 routes.get('/reservaHasPratos/all',  reservaHasPratosController.all)
 routes.post('/reservaHasPratos/create',  reservaHasPratosController.create)
+routes.post('/reservaHasPratos/findByReserva',  reservaHasPratosController.findByReserva)
+
 
 
 

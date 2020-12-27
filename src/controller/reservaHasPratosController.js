@@ -31,4 +31,20 @@ module.exports = {
 
     },
 
+    async findByReserva(req, res) {
+
+        try {
+
+            const reservaHasPratosService = require('../services/reservaHasPratosService')
+            const response = await reservaHasPratosService.findByReserva(req, res)
+
+            return response
+
+        } catch (e) {
+
+            return
+        }
+
+    },
+
   }
