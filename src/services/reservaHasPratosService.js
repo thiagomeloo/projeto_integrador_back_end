@@ -1,3 +1,4 @@
+const { select } = require('../database/conexao')
 
 module.exports = {
 
@@ -40,7 +41,10 @@ module.exports = {
         const con = require('../database/conexao')
         const reserva_codigo = req.body.reserva_codigo
 
-        await con('reservas_has_pratos').where({reserva_has_prato_reserva_codigo : reserva_codigo })
+        await con('reservas_has_pratos')
+        .innerJoin('pratos', 'reservas_has_pratos.reserva_has_prato_prato_codigo', 'pratos.prato_codigo')
+        .innerJoin('reservas', 'reservas_has_pratos.reserva_has_prato_reserva_codigo', 'reservas.reserva_codigo')
+        .where({reserva_has_prato_reserva_codigo : reserva_codigo })
             
             .then(reservasHasPratos => {
                 if (reservasHasPratos) {
