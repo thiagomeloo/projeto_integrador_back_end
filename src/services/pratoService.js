@@ -56,8 +56,7 @@ module.exports = {
         const con = require('../database/conexao')
         const restaurante_codigo = req.body.restaurante_codigo
 
-        await con('pratos').where({prato_restaurante_codigo : restaurante_codigo })
-            
+        await con('pratos').where({prato_restaurante_codigo : restaurante_codigo, prato_status: 1 })
             .then(pratos => {
                 if (pratos) {
 

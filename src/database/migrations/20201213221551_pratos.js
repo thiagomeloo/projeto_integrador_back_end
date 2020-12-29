@@ -8,7 +8,7 @@ exports.up = function (knex) {
         tb.text('prato_descricao')
         tb.double('prato_preco')
         tb.integer('prato_restaurante_codigo').unsigned()
-        
+        tb.boolean('prato_status').defaultTo(true)
         tb.foreign('prato_restaurante_codigo').references('restaurante_codigo').inTable('restaurantes')
     })
 }
