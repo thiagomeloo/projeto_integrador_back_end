@@ -57,8 +57,9 @@ module.exports = {
     async findByCliente(req, res) {
         const con = require('../database/conexao')
         const cliente_codigo = req.body.cliente_codigo
-
         await con('reservas').where({reserva_cliente_codigo : cliente_codigo })
+        .innerJoin('clientes', 'reserva_cliente_codigo', 'clientes.cliente_codigo')
+        .innerJoin('restaurantes', 'reserva_restaurante_codigo', 'restaurantes.restaurante_codigo')
             
             .then(reservas => {
                 if (reservas) {
