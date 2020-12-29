@@ -58,7 +58,7 @@ module.exports = {
         const con = require('../database/conexao')
         const restaurante_codigo = req.body.restaurante_codigo
 
-        await con('mesas').where({ mesa_restaurante_codigo: restaurante_codigo })
+        await con('mesas').where({ mesa_restaurante_codigo: restaurante_codigo, mesa_status: 1 })
 
             .then(mesas => {
                 if (mesas) {
@@ -79,7 +79,7 @@ module.exports = {
         const con = require('../database/conexao')
         const restaurante_codigo = req.body.restaurante_codigo
 
-        await con('mesas').where({ mesa_restaurante_codigo: restaurante_codigo })
+        await con('mesas').where({ mesa_restaurante_codigo: restaurante_codigo, mesa_status: 1 })
             .andWhere('mesa_quant_mesas', '>', 0)
             .whereRaw('mesa_data_hora >= now()').orderBy('mesa_data_hora', 'asc')
             .then(mesas => {
@@ -101,7 +101,7 @@ module.exports = {
         const con = require('../database/conexao')
         const restaurante_codigo = req.body.restaurante_codigo
         const qtd_pessoa = req.body.qtd_pessoa
-        await con('mesas').where({ mesa_restaurante_codigo: restaurante_codigo })
+        await con('mesas').where({ mesa_restaurante_codigo: restaurante_codigo, mesa_status: 1 })
             .andWhere('mesa_quant_pessoas', '>=', qtd_pessoa)
             .andWhere('mesa_quant_mesas', '>', 0)
             .whereRaw('mesa_data_hora >= now()').orderBy('mesa_data_hora', 'asc')

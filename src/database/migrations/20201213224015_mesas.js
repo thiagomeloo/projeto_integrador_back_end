@@ -5,6 +5,7 @@ exports.up = function (knex) {
         tb.integer('mesa_quant_mesas')
         tb.integer('mesa_quant_pessoas')
         tb.integer('mesa_restaurante_codigo').unsigned()
+        tb.boolean('mesa_status').defaultTo(true)
   
         tb.foreign('mesa_restaurante_codigo').references('restaurante_codigo').inTable('restaurantes')
       })
