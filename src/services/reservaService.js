@@ -81,6 +81,11 @@ module.exports = {
         const restaurante_codigo = req.body.restaurante_codigo
 
         await con('reservas').where({reserva_restaurante_codigo : restaurante_codigo })
+            .innerJoin('clientes', 'reserva_cliente_codigo', 'clientes.cliente_codigo')
+            .innerJoin('mesas', 'reserva_mesa_codigo', 'mesas.mesa_codigo')
+            .innerJoin('restaurantes', 'reserva_restaurante_codigo', 'restaurantes.restaurante_codigo')
+
+
             
             .then(reservas => {
                 if (reservas) {
