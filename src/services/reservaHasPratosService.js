@@ -62,4 +62,33 @@ module.exports = {
             })
     },
 
+    async findByReservaCountPratos(req, res) {
+        const con = require('../database/conexao')
+        const reserva_codigo = req.body.reserva_codigo
+
+        await con('reservas_has_pratos').count('prato_codigo', {as: 'qtd_pratos_reserva'})
+        .innerJoin('pratos', 'reservas_has_pratos.reserva_has_prato_prato_codigo', 'pratos.prato_codigo')
+        .innerJoin('reservas', 'reservas_has_pratos.reserva_has_prato_reserva_codigo', 'reservas.reserva_codigo')
+        .where({reserva_has_prato_reserva_codigo : reserva_codigo })
+            
+            .then(reservasHasPratos => {
+                if (reservasHasPratos) {
+
+                    return res.status(200).json({ reservasHasPratos })
+
+                } else {
+
+                    return res.status(200).json({notExist:true, message: 'registro não encontrado!' })
+
+                }
+            })
+            .catch(erro => {
+                return res.status(200).json({ message: 'não foi possivel executar a operação!' })
+            })
+    },
+    
+
+
+    
+
 }

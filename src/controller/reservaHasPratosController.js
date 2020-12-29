@@ -46,5 +46,20 @@ module.exports = {
         }
 
     },
+    async findByReservaCountPratos(req, res) {
 
+        try {
+
+            const reservaHasPratosService = require('../services/reservaHasPratosService')
+            const response = await reservaHasPratosService.findByReservaCountPratos(req, res)
+
+            return response
+
+        } catch (e) {
+
+            return
+        }
+
+    },
+    
   }
